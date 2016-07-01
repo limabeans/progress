@@ -10,20 +10,25 @@
           <th>text</th>
           <th>source</th>
           <th>tags</th>
-          <th>URL</th>
-          <th>Edit</th>
+          <th>Add tag</th>
           <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         {{#each getEntriesByTag this}}
         <tr>
-          <td class="active">{{this.text}}</td>
-          <td class="active">{{this.source}}</td>
-          <td class="active">{{this.tags}}</td>
-          <td class="active">{{this.URL}}</td>
-          <td class="active">edit</td>
-          <td class="active">
+          <td class="col-md-6">{{this.text}}</td>
+          <td class="col-md-1">{{this.source}}</td>
+          <td class="col-md-2">{{this.tags}}</td>
+          <td class="col-md-2">
+            <form class="new-item">
+              <div class="form-group">
+                <!--<label for="addTagInput"></label>-->
+                <input type="text" id="{{this._id}}" class="form-control" name="text" placeholder="new tag" />
+              </div>
+            </form>
+          </td>
+          <td class="col-md-1">
             <button id="{{this._id}}" class="btn btn-danger btn-xs deleteButton">delete</button>
           </td>
         </tr>

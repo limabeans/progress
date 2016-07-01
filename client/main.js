@@ -223,5 +223,17 @@ Template.tagsTemplate.events({
     'click .deleteButton': function(e) {
         var tagEntryId = e.currentTarget.id;
         TagEntries.remove(tagEntryId);
+    },
+    'submit .new-item'(event) {
+        event.preventDefault();
+        // Get value from form element
+        const target = event.target;
+        const newTag = target.text.value;
+        const entryId = this._id;
+        TagEntries.update({_id: entryId},
+                          {$push: {tags: newTag }
+                          });
+        target.text.value = '';
     }
 });
+
