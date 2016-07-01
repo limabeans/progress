@@ -1,0 +1,26 @@
+<template name="qaTemplate">
+  <div class="container">
+    <h6>list of stuff.</h6>
+    <ol>
+      {{#each getEntries}}
+      <li>
+        <!-- <b>ID:</b> {{_id}} -->
+        <!-- <br> -->
+        <b>Question:</b> {{question}}
+        <br>
+        <b>Source: </b>{{source}}
+        <br>
+        <button class="btn btn-primary btn-xs" type="button" data-toggle="collapse" data-target="#{{_id}}" aria-expanded="false" aria-controls="collapseExample">
+          show answer
+        </button>
+        <div class="collapse" id="{{_id}}">
+          <div class="well">
+            {{answer}}
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+    <a href="/">back to home</a>
+  </div>
+</template>

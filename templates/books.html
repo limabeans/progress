@@ -1,0 +1,39 @@
+<template name="booksTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Book title</th><th>id</th><th>Delete book entry</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each getBooksCollection}}
+            <tr>
+              <td class="active"><a href="/books/{{name}}">{{name}}</a></td>
+              <td class="active">{{_id}}</td>
+              <td class="active">delete</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        {{> addBookForm}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="bookTemplate">
+  <div class="container">
+    <body>
+      <h1>book name: {{name }}</h1>
+      <h3>By: {{getAuthor}}</h3>
+      {{#each getPages}}
+      <button type="button" id="{{this.pageNum}}" class="pageBtn btn {{#if getPageFreq this.pageNum}} btn-success {{else}}btn-default{{/if}}">{{this.pageNum}}</button>
+      {{/each}}
+    </body>
+  </div>
+</template>

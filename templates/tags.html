@@ -1,0 +1,43 @@
+<template name="tagsTemplate">
+  <div class="container">
+    <a href="/tags/new">New question</a>
+    <h6>{{getTags}}</h6>
+    {{#each getTags}}
+    <h3>#{{this}}</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>text</th>
+          <th>source</th>
+          <th>tags</th>
+          <th>URL</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each getEntriesByTag this}}
+        <tr>
+          <td class="active">{{this.text}}</td>
+          <td class="active">{{this.source}}</td>
+          <td class="active">{{this.tags}}</td>
+          <td class="active">{{this.URL}}</td>
+          <td class="active">edit</td>
+          <td class="active">
+            <button id="{{this._id}}" class="btn btn-danger btn-xs deleteButton">delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{/each}}
+  </div>
+</template>
+
+
+<template name="newTagTemplate">
+  <div class="container">
+    <a href="/tags/">Go back</a>
+    {{> addTagEntryForm}}
+  </div>
+</template>

@@ -1,0 +1,65 @@
+<head>
+  <title>Progress</title>
+  <!-- Custom styles for this template -->
+  <link href="main.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/books">Books</a></li>
+          <li><a href="/tags">Tags</a></li>
+          <li><a href="/calendar">Calendar</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+</body>
+
+
+<template name="addBookForm">
+  {{> quickForm collection=bookFormCollection omitFields="pages" id="addBookForm" type="insert"}}
+</template>
+
+<template name="addTopicForm">
+  {{> quickForm collection=topicFormCollection id="addTopicForm" type="insert"}}
+</template>
+
+<template name="updateTopicForm">
+  {{> quickForm collection=topicFormCollection doc=this id="updateTopicForm" type="update"}}
+</template>
+
+<template name="addTagEntryForm">
+  {{#autoForm collection=tagEntryFormCollection id="addTagEntryForm" type="insert"}}
+  <fieldset>
+    <legend>Add an interview question</legend>
+    {{> afQuickField name='text' rows=6}}
+    {{> afQuickField name='tags'}}
+    {{> afQuickField name='source'}}
+    {{> afQuickField name='URL'}}
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Insert</button>
+  {{/autoForm}}
+</template>
+
+
+<template name="addQA">
+  <h6>add entry.</h6>
+  <input id="q" type="text" name="question" placeholder="question" />
+  <input id="a" type="text" name="answer" placeholder="answer" />
+  <input id="s" type="text" name="source" placeholder="source" />
+  <button type="button" class="submitButton" name="submit">submit</button>
+</template>
+

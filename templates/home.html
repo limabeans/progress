@@ -1,0 +1,35 @@
+<template name="homeTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <!--<p class="lead">Your topics</p> -->
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Topic</th><th>number of posts</th><th>Delete topic</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each getTopicsCollection}}
+            <tr>
+              <td class="active"><a href="/topics/{{name}}">{{name}}</a></td>
+              <td class="active">{{getTopicLength this}}</td>
+              <td class="active">
+                <button id="{{this._id}}" class="btn btn-danger btn-xs deleteButton">delete</button>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        {{> addTopicForm}}
+        <div class="starter-template">
+          <!-- <h1>Progress 1.0</h1> -->
+          <!-- <p class="lead">Calendar. To-do list. Learn, grow, and visualize your progress. </p> -->
+        </div>
+      </div>
+    </div>
+  </div><!-- /.container -->
+</template>
